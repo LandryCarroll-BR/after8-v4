@@ -1,18 +1,14 @@
 import { gql } from '../../__generated__';
+import { PrimaryMenuItemFragmentFragment } from '../../__generated__/graphql';
+import { Logo } from '../logo/logo';
 
 import Link from 'next/link';
 
-import {
-  HeaderGeneralSettingsFragmentFragment,
-  PrimaryMenuItemFragmentFragment,
-} from '../../__generated__/graphql';
-import { Logo } from '../logo/logo';
-
-type HeaderProps = {
+interface HeaderProps extends React.HTMLProps<HTMLElement> {
   menuItems: PrimaryMenuItemFragmentFragment[];
-};
+}
 
-export default function Header({ menuItems }: HeaderProps) {
+export const Header = ({ menuItems }: HeaderProps) => {
   return (
     <header className={'bg-gray-100 py-4'}>
       <div className="container flex items-center">
@@ -32,7 +28,7 @@ export default function Header({ menuItems }: HeaderProps) {
       </div>
     </header>
   );
-}
+};
 
 Header.fragments = {
   generalSettingsFragment: gql(`
