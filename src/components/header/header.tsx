@@ -14,7 +14,6 @@ import {
   buttonVariants,
 } from '@/components';
 
-import Link from 'next/link';
 import { useBoundedScroll } from '@/hooks/use-bounded-scroll';
 
 interface HeaderProps extends React.HTMLProps<HTMLElement> {
