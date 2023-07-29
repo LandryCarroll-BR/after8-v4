@@ -21,7 +21,7 @@ interface HeaderProps extends React.HTMLProps<HTMLElement> {
 }
 
 export const Header = ({ menuItems }: HeaderProps) => {
-  let { scrollYBoundedProgress } = useBoundedScroll(100);
+  let { scrollYBoundedProgress } = useBoundedScroll(200);
   let scrollYBoundedProgressThrottled = useTransform(
     scrollYBoundedProgress,
     [0, 0.75, 1],
@@ -35,14 +35,17 @@ export const Header = ({ menuItems }: HeaderProps) => {
         backgroundColor: useMotionTemplate`rgb(14 14 17 / ${useTransform(
           scrollYBoundedProgressThrottled,
           [0, 1],
-          [1, 0.1]
+          [1, 0]
         )})`,
       }}
-      className="fixed inset-x-0 flex h-20 shadow backdrop-blur-md"
+      className="fixed inset-x-0 z-40 flex h-20 bg-gradient-to-b from-background to-background/0"
     >
-      <Container className="flex w-full items-center gap-8 pt-4">
+      <Container className="flex w-full items-center gap-8 py-4">
         <motion.div
-          style={{ height: useTransform(scrollYBoundedProgressThrottled, [0, 1], [80, 54]) }}
+          style={{
+            height: useTransform(scrollYBoundedProgressThrottled, [0, 1], [80, 54]),
+            opacity: useTransform(scrollYBoundedProgressThrottled, [0, 1], [1, 0]),
+          }}
         >
           <Logo className="aspect-auto h-full w-full" />
         </motion.div>
@@ -60,11 +63,11 @@ export const Header = ({ menuItems }: HeaderProps) => {
                 buttonVariants({
                   variant: 'outline',
                   size: 'lg',
-                  className: 'flex items-center justify-center',
+                  className: 'flex items-center justify-center border-0 !p-0 hover:!bg-transparent',
                 })
               )}
             >
-              <MenuIcon className="h-8 w-8 text-primary" />
+              <MenuIcon className="h-8 w-8 flex-1 text-primary" />
             </SheetTrigger>
             <SheetContent className="border-0 border-l pt-16">
               <NavigationMenu
