@@ -13,7 +13,7 @@ export function useScrollPosition(min: number, max: number) {
 
       height.set(Math.min(Math.max(newHeight, min), max));
     });
-  }, [scrollY, height]);
+  }, [scrollY, height, max, min]);
 
   return { height };
 }
