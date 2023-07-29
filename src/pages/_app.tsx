@@ -13,8 +13,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <FaustProvider pageProps={pageProps}>
-      <Component {...pageProps} key={router.asPath} />
-      <Blink />
+      <div className="dark flex min-h-screen flex-col scroll-smooth bg-background font-sans text-foreground antialiased">
+        <Component {...pageProps} key={router.asPath} />
+        <Blink />
+      </div>
     </FaustProvider>
   );
 }

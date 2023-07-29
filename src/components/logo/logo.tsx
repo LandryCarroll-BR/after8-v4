@@ -1,6 +1,11 @@
-export function Logo() {
+import { cn } from '@/lib/utils';
+
+interface LogoProps extends React.HTMLProps<HTMLOrSVGElement> {}
+
+export const Logo: React.FC<LogoProps> = ({ className }) => {
   return (
     <svg
+      className={cn(className)}
       id="Group_7"
       data-name="Group 7"
       xmlns="http://www.w3.org/2000/svg"
@@ -63,4 +68,4 @@ export function Logo() {
       </g>
     </svg>
   );
-}
+};

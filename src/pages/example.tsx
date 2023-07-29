@@ -1,10 +1,9 @@
 import { gql } from '../__generated__';
 import { useQuery } from '@apollo/client';
 import Head from 'next/head';
-import Header from '../components/header/header';
-import Footer from '../components/footer/footer';
 import { getNextStaticProps } from '@faustwp/core';
 import { GetStaticPropsContext } from 'next';
+import { Footer, Header } from '@/components';
 
 /**
  * Next.js file based page example with Faust helpers.
