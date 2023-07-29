@@ -6,6 +6,7 @@ import {
   HeaderGeneralSettingsFragmentFragment,
   PrimaryMenuItemFragmentFragment,
 } from '../../__generated__/graphql';
+import { Logo } from '../logo/logo';
 
 type HeaderProps = {
   menuItems: PrimaryMenuItemFragmentFragment[];
@@ -16,7 +17,7 @@ export default function Header({ menuItems }: HeaderProps) {
     <header className={'bg-gray-100 py-4'}>
       <div className="container flex items-center">
         <Link href="/" className={''}>
-          <h2 className={''}>{'Logo Goes Here'}</h2>
+          <Logo />
         </Link>
 
         <nav className={'ml-auto'}>
