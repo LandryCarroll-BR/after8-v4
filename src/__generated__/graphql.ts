@@ -20,6 +20,17 @@ export type AcfFieldGroup = {
   fieldGroupName?: Maybe<Scalars['String']>;
 };
 
+/** ACF Link field */
+export type AcfLink = {
+  __typename?: 'AcfLink';
+  /** The target of the link (_blank, etc) */
+  target?: Maybe<Scalars['String']>;
+  /** The title of the link */
+  title?: Maybe<Scalars['String']>;
+  /** The url of the link */
+  url?: Maybe<Scalars['String']>;
+};
+
 /** A Gravity Forms address field. */
 export type AddressField = FormField & GfFieldWithAddressSetting & GfFieldWithAdminLabelSetting & GfFieldWithAutocompleteSetting & GfFieldWithConditionalLogicSetting & GfFieldWithCopyValuesOptionSetting & GfFieldWithCssClassSetting & GfFieldWithDescriptionSetting & GfFieldWithErrorMessageSetting & GfFieldWithInputs & GfFieldWithLabelPlacementSetting & GfFieldWithLabelSetting & GfFieldWithPersonalData & GfFieldWithPrepopulateFieldSetting & GfFieldWithRulesSetting & GfFieldWithSubLabelPlacementSetting & {
   __typename?: 'AddressField';
@@ -7096,8 +7107,6 @@ export enum MimeTypeEnum {
   ImageJpeg = 'IMAGE_JPEG',
   /** MimeType image/png */
   ImagePng = 'IMAGE_PNG',
-  /** MimeType image/svg+xml */
-  ImageSvgXml = 'IMAGE_SVG_XML',
   /** MimeType image/tiff */
   ImageTiff = 'IMAGE_TIFF',
   /** MimeType image/webp */
@@ -8009,8 +8018,6 @@ export type Page = ContentNode & DatabaseIdentifier & HierarchicalContentNode & 
   featuredImageId?: Maybe<Scalars['ID']>;
   /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
   guid?: Maybe<Scalars['String']>;
-  /** Added to the GraphQL Schema because the ACF Field Group &quot;PAGE: Home&quot; was set to Show in GraphQL. */
-  home?: Maybe<Page_Home>;
   /** The globally unique identifier of the page object. */
   id: Scalars['ID'];
   /** Whether the node is a Content Node */
@@ -8418,25 +8425,6 @@ export type PageToRevisionConnectionWhereArgs = {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>;
-};
-
-/** Field Group */
-export type Page_Home = AcfFieldGroup & {
-  __typename?: 'Page_Home';
-  /** The name of the ACF Field Group */
-  fieldGroupName?: Maybe<Scalars['String']>;
-  heroSection?: Maybe<Page_Home_HeroSection>;
-};
-
-/** Field Group */
-export type Page_Home_HeroSection = AcfFieldGroup & {
-  __typename?: 'Page_Home_HeroSection';
-  /** The name of the ACF Field Group */
-  fieldGroupName?: Maybe<Scalars['String']>;
-  heroContent?: Maybe<Scalars['String']>;
-  heroImageDesktop?: Maybe<MediaItem>;
-  heroImageMobile?: Maybe<MediaItem>;
-  heroTitle?: Maybe<Scalars['String']>;
 };
 
 /** A Gravity Forms password field. */
@@ -11100,6 +11088,9 @@ export enum PostObjectFieldFormatEnum {
   /** Provide the field value as rendered by WordPress. Default. */
   Rendered = 'RENDERED'
 }
+
+/** Union between the post, page and media item types */
+export type PostObjectUnion = MediaItem | Page | Post;
 
 /** The column to use when filtering by date */
 export enum PostObjectsConnectionDateColumnEnum {
@@ -16912,17 +16903,249 @@ export type TaxonomyToContentTypeConnectionPageInfo = ContentTypeConnectionPageI
 };
 
 /** The template assigned to the node */
-export type Template_Home = ContentTemplate & {
-  __typename?: 'Template_Home';
+export type Template_About = ContentTemplate & {
+  __typename?: 'Template_About';
+  /** Added to the GraphQL Schema because the ACF Field Group &quot;PAGE: About&quot; was set to Show in GraphQL. */
+  about?: Maybe<Template_About_About>;
   /** The name of the template */
   templateName?: Maybe<Scalars['String']>;
 };
 
+/** Field Group */
+export type Template_About_About = AcfFieldGroup & {
+  __typename?: 'Template_About_About';
+  aboutSection?: Maybe<Template_About_About_AboutSection>;
+  bandSection?: Maybe<Template_About_About_BandSection>;
+  calloutBox?: Maybe<Template_About_About_CalloutBox>;
+  cta?: Maybe<Template_About_About_Cta>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  hero?: Maybe<Template_About_About_Hero>;
+};
+
+/** Field Group */
+export type Template_About_About_AboutSection = AcfFieldGroup & {
+  __typename?: 'Template_About_About_AboutSection';
+  body?: Maybe<Scalars['String']>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  heading?: Maybe<Scalars['String']>;
+};
+
+/** Field Group */
+export type Template_About_About_BandSection = AcfFieldGroup & {
+  __typename?: 'Template_About_About_BandSection';
+  bandMembers?: Maybe<Array<Maybe<Template_About_About_BandSection_BandMembers>>>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+};
+
+/** Field Group */
+export type Template_About_About_BandSection_BandMembers = AcfFieldGroup & {
+  __typename?: 'Template_About_About_BandSection_bandMembers';
+  description?: Maybe<Scalars['String']>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  image?: Maybe<MediaItem>;
+  name?: Maybe<Scalars['String']>;
+};
+
+/** Field Group */
+export type Template_About_About_CalloutBox = AcfFieldGroup & {
+  __typename?: 'Template_About_About_CalloutBox';
+  body?: Maybe<Scalars['String']>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  heading?: Maybe<Scalars['String']>;
+  link?: Maybe<PostObjectUnion>;
+};
+
+/** Field Group */
+export type Template_About_About_Cta = AcfFieldGroup & {
+  __typename?: 'Template_About_About_Cta';
+  body?: Maybe<Scalars['String']>;
+  button?: Maybe<PostObjectUnion>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  heading?: Maybe<Scalars['String']>;
+  imageDesktop?: Maybe<MediaItem>;
+  imageMobile?: Maybe<MediaItem>;
+};
+
+/** Field Group */
+export type Template_About_About_Hero = AcfFieldGroup & {
+  __typename?: 'Template_About_About_Hero';
+  body?: Maybe<Scalars['String']>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  headingLine1?: Maybe<Scalars['String']>;
+  headingLine2?: Maybe<Scalars['String']>;
+  image1?: Maybe<MediaItem>;
+  image2?: Maybe<MediaItem>;
+  image3?: Maybe<MediaItem>;
+};
+
 /** The template assigned to the node */
-export type Template_OurInsurance = ContentTemplate & {
-  __typename?: 'Template_OurInsurance';
+export type Template_Contact = ContentTemplate & {
+  __typename?: 'Template_Contact';
+  /** Added to the GraphQL Schema because the ACF Field Group &quot;PAGE: Contact&quot; was set to Show in GraphQL. */
+  contact?: Maybe<Template_Contact_Contact>;
   /** The name of the template */
   templateName?: Maybe<Scalars['String']>;
+};
+
+/** Field Group */
+export type Template_Contact_Contact = AcfFieldGroup & {
+  __typename?: 'Template_Contact_Contact';
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  hero?: Maybe<Template_Contact_Contact_Hero>;
+};
+
+/** Field Group */
+export type Template_Contact_Contact_Hero = AcfFieldGroup & {
+  __typename?: 'Template_Contact_Contact_Hero';
+  body?: Maybe<Scalars['String']>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  heading?: Maybe<Scalars['String']>;
+  heroImageDesktop?: Maybe<MediaItem>;
+  heroImageMobile?: Maybe<MediaItem>;
+};
+
+/** The template assigned to the node */
+export type Template_Home = ContentTemplate & {
+  __typename?: 'Template_Home';
+  /** Added to the GraphQL Schema because the ACF Field Group &quot;PAGE: Home&quot; was set to Show in GraphQL. */
+  home?: Maybe<Template_Home_Home>;
+  /** The name of the template */
+  templateName?: Maybe<Scalars['String']>;
+};
+
+/** Field Group */
+export type Template_Home_Home = AcfFieldGroup & {
+  __typename?: 'Template_Home_Home';
+  aboutSection?: Maybe<Template_Home_Home_AboutSection>;
+  awardsSection?: Maybe<Template_Home_Home_AwardsSection>;
+  ctaSection?: Maybe<Template_Home_Home_CtaSection>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  hero?: Maybe<Template_Home_Home_Hero>;
+};
+
+/** Field Group */
+export type Template_Home_Home_AboutSection = AcfFieldGroup & {
+  __typename?: 'Template_Home_Home_AboutSection';
+  aboutHeading?: Maybe<Scalars['String']>;
+  featuredGrid?: Maybe<Array<Maybe<Template_Home_Home_AboutSection_FeaturedGrid>>>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+};
+
+/** Field Group */
+export type Template_Home_Home_AboutSection_FeaturedGrid = AcfFieldGroup & {
+  __typename?: 'Template_Home_Home_AboutSection_featuredGrid';
+  body?: Maybe<Scalars['String']>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  image1?: Maybe<MediaItem>;
+  image2?: Maybe<MediaItem>;
+  link?: Maybe<PostObjectUnion>;
+};
+
+/** Field Group */
+export type Template_Home_Home_AwardsSection = AcfFieldGroup & {
+  __typename?: 'Template_Home_Home_AwardsSection';
+  awardsBody?: Maybe<Scalars['String']>;
+  awardsHeading?: Maybe<Scalars['String']>;
+  awardsImages?: Maybe<Array<Maybe<Template_Home_Home_AwardsSection_AwardsImages>>>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  theKnotLink?: Maybe<AcfLink>;
+  weddingWireLink?: Maybe<AcfLink>;
+};
+
+/** Field Group */
+export type Template_Home_Home_AwardsSection_AwardsImages = AcfFieldGroup & {
+  __typename?: 'Template_Home_Home_AwardsSection_awardsImages';
+  awardLogo?: Maybe<MediaItem>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+};
+
+/** Field Group */
+export type Template_Home_Home_CtaSection = AcfFieldGroup & {
+  __typename?: 'Template_Home_Home_CtaSection';
+  ctaHeading?: Maybe<Scalars['String']>;
+  ctaImage?: Maybe<MediaItem>;
+  ctaLink?: Maybe<PostObjectUnion>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+};
+
+/** Field Group */
+export type Template_Home_Home_Hero = AcfFieldGroup & {
+  __typename?: 'Template_Home_Home_Hero';
+  bgImageDesktop?: Maybe<MediaItem>;
+  bgImageMobile?: Maybe<MediaItem>;
+  blurb?: Maybe<Scalars['String']>;
+  cta?: Maybe<PostObjectUnion>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  headingLine1?: Maybe<Scalars['String']>;
+  headingLine2?: Maybe<Scalars['String']>;
+};
+
+/** The template assigned to the node */
+export type Template_SongList = ContentTemplate & {
+  __typename?: 'Template_SongList';
+  /** Added to the GraphQL Schema because the ACF Field Group &quot;PAGE: Song List&quot; was set to Show in GraphQL. */
+  songList?: Maybe<Template_SongList_Songlist>;
+  /** The name of the template */
+  templateName?: Maybe<Scalars['String']>;
+};
+
+/** Field Group */
+export type Template_SongList_Songlist = AcfFieldGroup & {
+  __typename?: 'Template_SongList_Songlist';
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  hero?: Maybe<Template_SongList_Songlist_Hero>;
+};
+
+/** Field Group */
+export type Template_SongList_Songlist_Hero = AcfFieldGroup & {
+  __typename?: 'Template_SongList_Songlist_Hero';
+  body?: Maybe<Scalars['String']>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  heading?: Maybe<Scalars['String']>;
+};
+
+/** The template assigned to the node */
+export type Template_UpcomingShows = ContentTemplate & {
+  __typename?: 'Template_UpcomingShows';
+  /** The name of the template */
+  templateName?: Maybe<Scalars['String']>;
+  /** Added to the GraphQL Schema because the ACF Field Group &quot;PAGE: Upcoming Shows&quot; was set to Show in GraphQL. */
+  upcomingShows?: Maybe<Template_UpcomingShows_Upcomingshows>;
+};
+
+/** Field Group */
+export type Template_UpcomingShows_Upcomingshows = AcfFieldGroup & {
+  __typename?: 'Template_UpcomingShows_Upcomingshows';
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  hero?: Maybe<Template_UpcomingShows_Upcomingshows_Hero>;
+};
+
+/** Field Group */
+export type Template_UpcomingShows_Upcomingshows_Hero = AcfFieldGroup & {
+  __typename?: 'Template_UpcomingShows_Upcomingshows_Hero';
+  body?: Maybe<Scalars['String']>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  heading?: Maybe<Scalars['String']>;
 };
 
 /** Terms are nodes within a Taxonomy, used to group and relate other nodes. */
