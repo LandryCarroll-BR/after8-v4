@@ -1,7 +1,8 @@
+import { cn } from '@/lib/utils';
 import { gql } from '@/__generated__';
 import { GetAboutPageQuery } from '@/__generated__/graphql';
 import { FaustTemplate } from '@faustwp/core';
-import { cn } from '@/lib/utils';
+import { Number8SVG } from '@/components/icons/number8';
 
 import {
   Card,
@@ -37,7 +38,7 @@ const Template: FaustTemplate<GetAboutPageQuery> = (props) => {
       <Main>
         {/* Hero Section */}
         <section className="relative overflow-x-clip pt-16">
-          <div className="container my-16 grid grid-cols-1 gap-8 lg:my-28 lg:grid-cols-2">
+          <Container className="my-16 grid grid-cols-1 gap-8 lg:my-28 lg:grid-cols-2">
             <div className="relative z-10">
               <h1 className="mb-8 font-display text-4xl leading-tight tracking-tighter sm:text-5xl md:text-6xl lg:text-6xl">
                 <span className="text-primary">{hero.headingLine1}</span>
@@ -74,19 +75,16 @@ const Template: FaustTemplate<GetAboutPageQuery> = (props) => {
                 />
               </div>
             </div>
-          </div>
+          </Container>
 
-          <div
-            // className="absolute left-0 top-52 -ml-1/2 scale-75 object-contain lg:-ml-1/4 lg:scale-100"
-            className="absolute left-0 top-60 -ml-32 scale-75 object-contain lg:scale-100"
-          >
-            {/* <Number8SVG className="w-[600px] fill-primary/5" /> */}
+          <div className="absolute left-0 top-60 -ml-56 scale-75 object-contain md:-ml-32 lg:scale-100">
+            <Number8SVG className="w-[600px] fill-primary/5" />
           </div>
         </section>
 
         {/* About Section */}
-        <section className="container xl:-mt-32">
-          <div className="my-16 flex flex-col gap-6 lg:my-28 lg:flex-row">
+        <section className="xl:-mt-20">
+          <Container className="my-16 flex flex-col gap-6 lg:my-28 lg:flex-row">
             <div className="flex-1">
               <h2 className="mb-8 font-display text-3xl tracking-tighter text-primary md:text-4xl lg:text-5xl">
                 {aboutSection.heading}
@@ -109,7 +107,7 @@ const Template: FaustTemplate<GetAboutPageQuery> = (props) => {
                 </Link>
               </div>
             </div>
-          </div>
+          </Container>
         </section>
 
         {/* Meet The Band Section */}
@@ -175,7 +173,7 @@ const Template: FaustTemplate<GetAboutPageQuery> = (props) => {
         <section className="relative mt-28 flex h-[550px] flex-col items-center justify-center overflow-hidden text-center">
           <div className="container">
             <div className="relative z-10 flex flex-col items-center justify-center gap-7">
-              <h2 className="tracking-tightest text-center font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+              <h2 className="tracking-tightest text-center font-display text-[10vw] leading-[1.1] sm:text-5xl md:text-6xl lg:text-7xl">
                 {cta.heading}
               </h2>
 
