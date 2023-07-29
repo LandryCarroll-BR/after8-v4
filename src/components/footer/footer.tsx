@@ -34,7 +34,7 @@ export const Footer = ({ menuItems }: FooterProps) => {
           </ul>
         </div>
 
-        <NavigationMenu className={''} menuItems={menuItems} />
+        <NavigationMenu className={'flex-wrap justify-center'} menuItems={menuItems} />
         <div className={'mt-auto'}>&copy; {new Date().getFullYear()} After 8</div>
       </div>
     </footer>

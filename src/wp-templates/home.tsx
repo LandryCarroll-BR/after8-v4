@@ -1,6 +1,8 @@
 import { gql } from '@/__generated__';
 import { GetHomePageQuery } from '@/__generated__/graphql';
 import { FaustTemplate } from '@faustwp/core';
+import { cn } from '@/lib/utils';
+
 import {
   Card,
   CardContent,
@@ -13,8 +15,8 @@ import {
   SiteHead,
   buttonVariants,
 } from '@/components';
+
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
 import Image from 'next/image';
 
 type GridRow = {
