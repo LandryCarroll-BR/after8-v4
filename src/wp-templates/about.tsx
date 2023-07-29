@@ -1,7 +1,8 @@
+import { cn } from '@/lib/utils';
 import { gql } from '@/__generated__';
 import { GetAboutPageQuery } from '@/__generated__/graphql';
 import { FaustTemplate } from '@faustwp/core';
-import { cn } from '@/lib/utils';
+import { Number8SVG } from '@/components/icons/number8';
 
 import {
   Card,
@@ -18,7 +19,6 @@ import {
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Number8SVG } from '@/components/icons/number8';
 
 const Template: FaustTemplate<GetAboutPageQuery> = (props) => {
   // Loading state for previews
