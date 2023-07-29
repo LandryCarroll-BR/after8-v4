@@ -24,7 +24,7 @@ const Template: FaustTemplate<GetPageQuery> = (props) => {
         <div dangerouslySetInnerHTML={{ __html: content }} />
       </main>
 
-      <Footer />
+      <Footer menuItems={menuItems} />
     </>
   );
 };

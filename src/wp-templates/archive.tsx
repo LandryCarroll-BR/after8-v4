@@ -39,7 +39,7 @@ const Template: FaustTemplate<GetArchiveQuery> = (props) => {
         </ul>
       </main>
 
-      <Footer />
+      <Footer menuItems={menuItems} />
     </>
   );
 };
