@@ -15,6 +15,7 @@ import {
 } from '@/components';
 
 import { useBoundedScroll } from '@/hooks/use-bounded-scroll';
+import Link from 'next/link';
 
 interface HeaderProps extends React.HTMLProps<HTMLElement> {
   menuItems: PrimaryMenuItemFragmentFragment[];
@@ -47,7 +48,9 @@ export const Header = ({ menuItems }: HeaderProps) => {
             opacity: useTransform(scrollYBoundedProgressThrottled, [0, 1], [1, 0]),
           }}
         >
-          <Logo className="aspect-auto h-full w-full" />
+          <Link href={'/'}>
+            <Logo className="aspect-auto h-full w-full" />
+          </Link>
         </motion.div>
         <motion.div
           className="hidden lg:block"
