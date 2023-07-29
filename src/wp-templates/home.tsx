@@ -19,7 +19,7 @@ const Template: FaustTemplate<GetHomePageQuery> = (props) => {
 
       <Header menuItems={menuItems} />
 
-      <main className=""></main>
+      <main className="h-[3000px]"></main>
 
       <Footer />
     </>
