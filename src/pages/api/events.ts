@@ -1,7 +1,7 @@
 import { google } from 'googleapis';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(_req: NextRequest, res: NextResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   const calendar = google.calendar({
     version: 'v3',
     auth: process.env.GOOGLE_API_KEY,
@@ -11,7 +11,7 @@ export default async function handler(_req: NextRequest, res: NextResponse) {
     calendarId: 'after8booking@gmail.com',
   };
 
-  async function fetchEvents(params: any) {
+  async function main(params: any) {
     try {
       const res = await calendar.events.list({ calendarId: params.calendarId });
       return res;
@@ -20,17 +20,7 @@ export default async function handler(_req: NextRequest, res: NextResponse) {
     }
   }
 
-  const events = await fetchEvents(params);
+  const events = await main(params);
 
-  return new Response(
-    JSON.stringify({
-      events,
-    }),
-    {
-      status: 200,
-      headers: {
-        'content-type': 'application/json',
-      },
-    }
-  );
+  return res.status(200).json(events);
 }

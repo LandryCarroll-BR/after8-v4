@@ -3,7 +3,7 @@ import * as SheetPrimitive from '@radix-ui/react-dialog';
 import { cva, type VariantProps } from 'cva';
 
 import { cn } from '@/lib/utils';
-import { XIcon } from '../icons';
+import { XIcon } from '@/components/icons';
 
 const Sheet = SheetPrimitive.Root;
 
