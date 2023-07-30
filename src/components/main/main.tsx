@@ -5,5 +5,5 @@ export interface MainProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const Main: React.FC<MainProps> = ({ className, children }) => {
-  return <main className={cn('pt-[70px]', className)}>{children}</main>;
+  return <main className={cn('pt-[100px]', className)}>{children}</main>;
 };

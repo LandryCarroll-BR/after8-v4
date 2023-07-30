@@ -10,7 +10,5 @@ export const EventsList = () => {
 
   if (isLoading || isError) return;
 
-  console.log(events);
-
   return <div></div>;
 };

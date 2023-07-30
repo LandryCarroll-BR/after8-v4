@@ -39,7 +39,7 @@ const Template: FaustTemplate<GetAboutPageQuery> = (props) => {
       <Main>
         <EventsList></EventsList>
         {/* Hero Section */}
-        <section className="relative overflow-x-clip pt-16">
+        <section className="relative overflow-x-clip">
           <Container className="my-16 grid grid-cols-1 gap-8 lg:my-28 lg:grid-cols-2">
             <div className="relative z-10">
               <h1 className="mb-8 font-display text-4xl leading-tight tracking-tighter sm:text-5xl md:text-6xl lg:text-6xl">

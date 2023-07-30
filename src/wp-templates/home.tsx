@@ -99,7 +99,7 @@ const Template: FaustTemplate<GetHomePageQuery> = (props) => {
         {/* Hero Section */}
         <section className="relative flex h-[calc(100vh-200px)] w-full flex-col overflow-hidden">
           <Container className="mt-auto flex w-full flex-col items-end justify-end pb-10 text-right">
-            <h1 className="!font-display text-3xl tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+            <h1 className="font-display text-3xl tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
               <span className="block text-primary">{hero?.headingLine1}</span>
               <span className="block">{hero?.headingLine2}</span>
             </h1>

@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import { gql } from '../../__generated__';
 import { motion, useMotionTemplate, useTransform } from 'framer-motion';
-import { MenuIcon } from '../icons';
+import { MenuIcon } from '@/components/icons';
 import { PrimaryMenuItemFragmentFragment } from '../../__generated__/graphql';
 
 import {
