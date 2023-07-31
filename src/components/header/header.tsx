@@ -49,8 +49,8 @@ export const Header = ({ menuItems }: HeaderProps) => {
             opacity: useTransform(scrollYBoundedProgressThrottled, [0, 1], [1, 0]),
           }}
         >
-          <Link href={'/'}>
-            <Logo className="aspect-auto h-full w-full" />
+          <Link href={'/'} className="flex h-full w-full items-center justify-center p-1">
+            <Logo className="aspect-auto w-16" />
           </Link>
         </motion.div>
         <motion.div
