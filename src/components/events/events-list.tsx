@@ -1,11 +1,6 @@
 import { fetchEvents } from '@/lib/api';
 import { useQuery } from '@tanstack/react-query';
-import { DataTable } from '../data-table/data-table';
-import { columns } from './columns';
 import { format } from 'date-fns';
-import MultiStepWizard from './featured-events';
-import { Main } from '../main/main';
-import { Container } from '../container/container';
 
 export const EventsList = () => {
   const {
@@ -46,7 +41,5 @@ export const EventsList = () => {
         })}
       </ul>
     </div>
-
-    // <DataTable columns={columns} data={events} />
   );
 };
