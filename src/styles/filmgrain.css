@@ -273,7 +273,7 @@
   top: -110%;
   width: 300%;
   z-index: 1;
-  @apply opacity-[.15] invert;
+  @apply opacity-[.25];
 }
 
 .blink:after {
