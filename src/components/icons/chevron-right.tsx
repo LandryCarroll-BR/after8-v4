@@ -1,6 +1,6 @@
-interface CircleIconProps extends React.HTMLProps<HTMLOrSVGElement> {}
+interface ChevronRightIconProps extends React.HTMLProps<HTMLOrSVGElement> {}
 
-export const CircleIcon: React.FC<CircleIconProps> = ({ className }) => {
+export const ChevronRightIcon: React.FC<ChevronRightIconProps> = ({ className }) => {
   return (
     <svg
       className={className}
@@ -14,7 +14,7 @@ export const CircleIcon: React.FC<CircleIconProps> = ({ className }) => {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <circle cx="12" cy="12" r="10" />
+      <path d="m9 18 6-6-6-6" />
     </svg>
   );
 };

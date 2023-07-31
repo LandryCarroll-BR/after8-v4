@@ -1,7 +1,8 @@
 import { Blink } from './blink/Blink';
 import { Button, buttonVariants } from './button/Button';
 import { Container } from './container/container';
-import { EventsList } from './events-list/events-list';
+import { DataTable } from './data-table/data-table';
+import { EventsList } from './events/events-list';
 import { Footer } from './footer/footer';
 import { Header } from './header/header';
 import { Input } from './input/input';
@@ -12,6 +13,35 @@ import { NavigationMenu } from './navigation-menu/navigation-menu';
 import { RawHtml } from './raw-html/raw-html';
 import { SiteHead } from './site-head/site-head';
 import { Textarea } from './textarea/textarea';
+
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuGroup,
+  DropdownMenuPortal,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuRadioGroup,
+} from './dropdown-menu/dropdown-menu';
+
+import {
+  Select,
+  SelectGroup,
+  SelectValue,
+  SelectTrigger,
+  SelectContent,
+  SelectLabel,
+  SelectItem,
+  SelectSeparator,
+} from './select/select';
 
 import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from './card/card';
 
@@ -37,6 +67,17 @@ import {
   SheetDescription,
 } from './sheet/sheet';
 
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableCaption,
+} from './table/table';
+
 export {
   Blink,
   Button,
@@ -48,6 +89,22 @@ export {
   CardDescription,
   CardContent,
   Container,
+  DataTable,
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuGroup,
+  DropdownMenuPortal,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuRadioGroup,
   EventsList,
   Footer,
   Form,
@@ -64,6 +121,14 @@ export {
   Main,
   NavigationMenu,
   RawHtml,
+  Select,
+  SelectGroup,
+  SelectValue,
+  SelectTrigger,
+  SelectContent,
+  SelectLabel,
+  SelectItem,
+  SelectSeparator,
   Sheet,
   SheetTrigger,
   SheetClose,
@@ -73,6 +138,14 @@ export {
   SheetTitle,
   SheetDescription,
   SiteHead,
+  Table,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableCaption,
   Textarea,
   useFormField,
 };

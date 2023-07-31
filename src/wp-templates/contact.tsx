@@ -1,10 +1,11 @@
 import { gql } from '@/__generated__';
 import { gql as apolloGql, useMutation } from '@apollo/client';
+import { cn } from '@/lib/utils';
 import { GetContactPageQuery } from '@/__generated__/graphql';
 import { FaustTemplate } from '@faustwp/core';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import { SpinnerIcon } from '@/components/icons';
+import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -24,10 +25,9 @@ import {
   Textarea,
   buttonVariants,
 } from '@/components';
-import { useForm } from 'react-hook-form';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
 
 const SUBMIT_FORM = apolloGql`
   mutation SubmitForm($databaseId: ID!, $fieldValues: [FormFieldValuesInput]!) {
@@ -59,7 +59,7 @@ const FormSchema = z.object({
 });
 
 const Template: FaustTemplate<GetContactPageQuery> = (props) => {
-  const [mutateFunction, { data, loading, error }] = useMutation(SUBMIT_FORM);
+  const [mutateFunction, { data, loading }] = useMutation(SUBMIT_FORM);
 
   let isSuccess = data?.submitGfForm?.confirmation?.message;
   let isError = data?.submitGfForm?.errors;

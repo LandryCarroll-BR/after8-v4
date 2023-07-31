@@ -1,10 +1,9 @@
-import { cn } from '@/lib/utils';
-
 interface FacebookIconProps extends React.HTMLProps<HTMLOrSVGElement> {}
 
 export const FacebookIcon: React.FC<FacebookIconProps> = ({ className }) => {
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"

@@ -19,7 +19,7 @@ import {
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { EventsList } from '@/components/events-list/events-list';
+import { EventsList } from '@/components/events/events-list';
 
 const Template: FaustTemplate<GetAboutPageQuery> = (props) => {
   // Loading state for previews
@@ -37,7 +37,6 @@ const Template: FaustTemplate<GetAboutPageQuery> = (props) => {
       <SiteHead>{fullHead}</SiteHead>
       <Header menuItems={menuItems} />
       <Main>
-        <EventsList></EventsList>
         {/* Hero Section */}
         <section className="relative overflow-x-clip">
           <Container className="my-16 grid grid-cols-1 gap-8 lg:my-28 lg:grid-cols-2">

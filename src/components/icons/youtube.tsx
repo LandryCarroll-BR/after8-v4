@@ -1,11 +1,9 @@
-import { cn } from '@/lib/utils';
-
 interface YoutubeIconProps extends React.HTMLProps<HTMLOrSVGElement> {}
 
 export const YoutubeIcon: React.FC<YoutubeIconProps> = ({ className }) => {
   return (
     <svg
-      className={cn(className)}
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"

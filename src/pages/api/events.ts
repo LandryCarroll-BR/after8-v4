@@ -1,3 +1,4 @@
+import { Event } from '@/lib/api';
 import { google } from 'googleapis';
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -11,7 +12,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     calendarId: 'after8booking@gmail.com',
   };
 
-  async function main(params: any) {
+  function transformEvents(googleApiResponse: any) {
+    return googleApiResponse?.data?.items?.map((item: any) => ({
+      id: item?.id,
+      eventTitle: item?.summary ?? 'private event',
+      eventLocation: item?.location ?? 'private location',
+      eventStartTime: item?.start?.dateTime,
+      eventEndTime: item?.end?.dateTime,
+      eventLink: item?.htmlLink,
+    }));
+  }
+
+  function removeOldEvents(events: Event[]) {
+    return events
+      .filter((event) => event.eventStartTime)
+      .filter((event) => new Date(event.eventStartTime) >= new Date());
+  }
+
+  async function main(params: { calendarId: string }) {
     try {
       const res = await calendar.events.list({ calendarId: params.calendarId });
       return res;
@@ -20,7 +38,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     }
   }
 
-  const events = await main(params);
+  const googleApiResponse = await main(params);
+  const allEvents = transformEvents(googleApiResponse);
+  const upcomingEvents = removeOldEvents(allEvents);
 
-  return res.status(200).json(events);
+  return res.status(200).json(upcomingEvents);
 }
