@@ -44,23 +44,11 @@ interface GridRowProps extends React.HTMLProps<HTMLDivElement> {
 const GridRow: React.FC<GridRowProps> = ({ gridRow }) => {
   return (
     <div className="flex flex-col items-center gap-2 md:flex-row-reverse md:gap-6 odd:md:flex-row">
-      <div className="flex items-center justify-center overflow-hidden rounded border border-border object-cover md:flex-1">
-        <Image
-          src={gridRow?.image1?.sourceUrl}
-          width={600}
-          height={400}
-          className="object-cover"
-          alt=""
-        />
+      <div className="relative flex aspect-[6/4] items-center justify-center overflow-hidden rounded border border-border object-cover md:flex-1">
+        <Image src={gridRow?.image1?.sourceUrl} fill className="absolute object-cover" alt="" />
       </div>
-      <div className="hidden items-center justify-center overflow-hidden rounded border border-border object-cover md:flex-1 lg:flex">
-        <Image
-          src={gridRow?.image2?.sourceUrl}
-          width={600}
-          height={400}
-          className="object-cover"
-          alt=""
-        />
+      <div className="relative hidden aspect-[6/4] items-center justify-center overflow-hidden rounded border border-border object-cover md:flex-1 lg:flex">
+        <Image src={gridRow?.image2?.sourceUrl} fill className="absolute object-cover" alt="" />
       </div>
       <div className="flex flex-col md:flex-1">
         <div className="p-4">
