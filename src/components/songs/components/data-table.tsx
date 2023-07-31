@@ -1,8 +1,6 @@
-'use client';
-
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components';
 import {
-  // ColumnDef,
+  ColumnDef,
   // ColumnFiltersState,
   // SortingState,
   // VisibilityState,
@@ -19,9 +17,10 @@ import * as React from 'react';
 
 import { DataTablePagination } from '../components/data-table-pagination';
 import { DataTableToolbar } from '../components/data-table-toolbar';
+import { song } from '../data/schema';
 
 interface DataTableProps {
-  columns: any;
+  columns: ColumnDef<song>[];
   data: any;
 }
 

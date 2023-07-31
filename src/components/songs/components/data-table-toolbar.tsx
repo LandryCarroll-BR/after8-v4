@@ -1,9 +1,11 @@
 import { Button, Input } from '@/components';
 import { DataTablePagination } from './data-table-pagination';
 import { XIcon } from '@/components/icons';
+import { Table } from '@tanstack/react-table';
+import { song } from '../data/schema';
 
 interface DataTableToolbarProps {
-  table: any;
+  table: Table<song>;
 }
 
 export function DataTableToolbar({ table }: DataTableToolbarProps) {
@@ -31,7 +33,6 @@ export function DataTableToolbar({ table }: DataTableToolbarProps) {
         )}
       </div>
       <DataTablePagination table={table} />
-      {/* <DataTableViewOptions table={table} /> */}
     </div>
   );
 }
