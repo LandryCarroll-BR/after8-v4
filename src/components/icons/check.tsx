@@ -1,6 +1,6 @@
-interface CircleIconProps extends React.HTMLProps<HTMLOrSVGElement> {}
+interface CheckIconProps extends React.HTMLProps<HTMLOrSVGElement> {}
 
-export const CircleIcon: React.FC<CircleIconProps> = ({ className }) => {
+export const CheckIcon: React.FC<CheckIconProps> = ({ className }) => {
   return (
     <svg
       className={className}
@@ -14,7 +14,7 @@ export const CircleIcon: React.FC<CircleIconProps> = ({ className }) => {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <circle cx="12" cy="12" r="10" />
+      <polyline points="20 6 9 17 4 12" />
     </svg>
   );
 };

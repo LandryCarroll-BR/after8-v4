@@ -7,7 +7,7 @@ export default function Page(props: WordPressTemplateProps) {
 }
 
 export const getStaticProps: GetStaticProps = (ctx) => {
-  return getWordPressProps({ ctx });
+  return getWordPressProps({ ctx, revalidate: 10 });
 };
 
 export const getStaticPaths: GetStaticPaths = () => {

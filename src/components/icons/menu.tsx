@@ -1,11 +1,9 @@
-import { cn } from '@/lib/utils';
-
 interface MenuIconProps extends React.HTMLProps<HTMLOrSVGElement> {}
 
 export const MenuIcon: React.FC<MenuIconProps> = ({ className }) => {
   return (
     <svg
-      className={cn(className)}
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"

@@ -15,19 +15,34 @@ export const Footer = ({ menuItems }: FooterProps) => {
         <div className={'flex gap-4'}>
           <ul aria-label="Social media" className="flex gap-4">
             <li>
-              <Link target="_blank" rel="noopener noreferrer" className={'text-primary'} href={''}>
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                className={'text-primary'}
+                href={'https://www.facebook.com/after8band/'}
+              >
                 <FacebookIcon />
               </Link>
             </li>
 
             <li>
-              <Link target="_blank" rel="noopener noreferrer" className={'text-primary'} href={''}>
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                className={'text-primary'}
+                href={'https://www.instagram.com/after8band/'}
+              >
                 <InstagramIcon />
               </Link>
             </li>
 
             <li>
-              <Link target="_blank" rel="noopener noreferrer" className={'text-primary'} href={''}>
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                className={'text-primary'}
+                href={'https://www.youtube.com/@theafter8band111'}
+              >
                 <YoutubeIcon />
               </Link>
             </li>

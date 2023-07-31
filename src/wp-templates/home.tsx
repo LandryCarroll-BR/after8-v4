@@ -239,7 +239,8 @@ Template.variables = ({ databaseId }, ctx) => {
 
 Template.query = gql(`
   query GetHomePage($databaseId: ID!, $asPreview: Boolean = false) {
-  page(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
+    page(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
+      id
       seo {
         fullHead
       }

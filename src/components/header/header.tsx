@@ -15,6 +15,7 @@ import {
 } from '@/components';
 
 import { useBoundedScroll } from '@/hooks/use-bounded-scroll';
+
 import Link from 'next/link';
 
 interface HeaderProps extends React.HTMLProps<HTMLElement> {
@@ -22,7 +23,7 @@ interface HeaderProps extends React.HTMLProps<HTMLElement> {
 }
 
 export const Header = ({ menuItems }: HeaderProps) => {
-  let { scrollYBoundedProgress } = useBoundedScroll(200);
+  let { scrollYBoundedProgress } = useBoundedScroll(80);
   let scrollYBoundedProgressThrottled = useTransform(
     scrollYBoundedProgress,
     [0, 0.75, 1],
