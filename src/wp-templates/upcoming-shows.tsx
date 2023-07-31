@@ -40,12 +40,9 @@ const Template: FaustTemplate<GetUpcomingShowsPageQuery> = (props) => {
           <div className="sticky top-12 mx-auto max-h-[400px] w-full max-w-full lg:mx-0 lg:max-w-sm">
             <Card className="min-w-full">
               <CardHeader className="text-4xl uppercase tracking-tight text-primary">
-                Looking for an awesome band?
+                Interested in having us at your event?
               </CardHeader>
-              <CardContent>
-                Look no further! Reach out to us now to discuss booking and bring unforgettable
-                melodies to your special occasion!
-              </CardContent>
+              {/* <CardContent> Interested in having us at your event? Drop us a line!</CardContent> */}
               <CardFooter>
                 <Link
                   href={'/contact'}

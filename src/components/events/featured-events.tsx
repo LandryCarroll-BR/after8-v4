@@ -144,7 +144,7 @@ export default function FeaturedEvents({ featuredEvents }: FeaturedEventsProps) 
           >
             <Image
               alt=""
-              src={event.eventBackgroundImage.sourceUrl}
+              src={event.eventBackgroundImage?.sourceUrl}
               fill
               priority
               className="absolute aspect-auto h-full w-full object-cover"
