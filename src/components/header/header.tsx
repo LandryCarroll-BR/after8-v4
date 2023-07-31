@@ -60,7 +60,7 @@ export const Header = ({ menuItems }: HeaderProps) => {
           <NavigationMenu menuItems={menuItems} />
         </motion.div>
 
-        <div className="ml-auto block lg:hidden">
+        <div className="flex w-full flex-1 items-center justify-end lg:hidden">
           <Sheet>
             <SheetTrigger
               className={cn(
