@@ -1,10 +1,12 @@
 import Head from 'next/head';
 import Script from 'next/script';
+import parse from 'html-react-parser';
 
 export function SiteHead({ children }: any) {
+  console.log(children);
   return (
     <>
-      <Head>{children}</Head>
+      <Head>{parse(children)}</Head>
       <Script src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID" />
       <Script id="google-analytics">
         {`
