@@ -12,6 +12,12 @@ module.exports = withFaust({
         port: '',
         pathname: '/wp-content/uploads/**/*',
       },
+      {
+        protocol: 'https',
+        hostname: 'after8.wpengine.com',
+        port: '',
+        pathname: '/wp-content/uploads/**/*',
+      },
     ],
   },
 });
