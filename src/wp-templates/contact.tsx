@@ -106,7 +106,6 @@ const Template: FaustTemplate<GetContactPageQuery> = (props) => {
           ],
         },
       });
-      console.log(response);
     } catch (error) {
       console.error(error);
     }

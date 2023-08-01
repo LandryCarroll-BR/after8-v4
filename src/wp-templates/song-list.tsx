@@ -72,12 +72,12 @@ const Template: FaustTemplate<GetSongListPageQuery> = (props) => {
               <div className="sticky top-16 mx-auto w-full lg:mx-0 lg:max-w-sm">
                 <Card className="min-w-full">
                   <CardHeader className="text-4xl uppercase tracking-tight text-primary">
-                    Hear these songs in action!
+                    Listen to some of our versions here!
                   </CardHeader>
-                  <CardContent>
+                  {/* <CardContent>
                     Experience the magic of our music! Check out our captivating performances and
                     listen to these songs on our Youtube channel.
-                  </CardContent>
+                  </CardContent> */}
                   <CardFooter>
                     <Link
                       target="_blank"
