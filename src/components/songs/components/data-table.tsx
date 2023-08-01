@@ -35,7 +35,7 @@ export function DataTable({ columns, data }: DataTableProps) {
     columns,
     initialState: {
       pagination: {
-        pageSize: 10,
+        pageSize: 50,
       },
     },
     state: {
