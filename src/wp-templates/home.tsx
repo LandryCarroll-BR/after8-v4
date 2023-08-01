@@ -138,15 +138,13 @@ const Template: FaustTemplate<GetHomePageQuery> = (props) => {
           <Container>
             <div className="grid gap-12 md:grid-cols-2 md:gap-10">
               <Card className="max-h-fit">
-                <CardHeader className="text-3xl font-bold">After 8 Weddings</CardHeader>
+                <CardHeader className="text-3xl font-bold">
+                  {awardsSection.awardsHeading}
+                </CardHeader>
                 <CardContent>
-                  <p>
-                    After 8 has spent the last two decades bringing the party and curating memories
-                    with newlyweds, corporate parties, and socialites of all kinds.
-                  </p>
+                  <p dangerouslySetInnerHTML={{ __html: awardsSection.awardsBody }} />
                 </CardContent>
                 <CardFooter className="flex flex-col gap-5">
-                  <p className="mr-auto">Check out our wedding profiles!</p>
                   <div className="mr-auto flex w-full flex-1 flex-col gap-5 md:flex-row">
                     <Link
                       href={awardsSection?.theKnotLink?.url}
