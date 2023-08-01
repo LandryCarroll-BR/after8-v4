@@ -12,6 +12,7 @@ import { Main } from './main/main';
 import { NavigationMenu } from './navigation-menu/navigation-menu';
 import { RawHtml } from './raw-html/raw-html';
 import { SiteHead } from './site-head/site-head';
+import { SocialLinks } from './social-links/social-links';
 import { Textarea } from './textarea/textarea';
 
 import {
@@ -138,6 +139,7 @@ export {
   SheetTitle,
   SheetDescription,
   SiteHead,
+  SocialLinks,
   Table,
   TableHeader,
   TableBody,

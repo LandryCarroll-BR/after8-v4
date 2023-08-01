@@ -11,6 +11,7 @@ import {
   Sheet,
   SheetContent,
   SheetTrigger,
+  SocialLinks,
   buttonVariants,
 } from '@/components';
 
@@ -53,11 +54,19 @@ export const Header = ({ menuItems }: HeaderProps) => {
             <Logo className="aspect-auto w-16" />
           </Link>
         </motion.div>
+
         <motion.div
           className="hidden lg:block"
           style={{ opacity: useTransform(scrollYBoundedProgressThrottled, [0, 1], [1, 0]) }}
         >
           <NavigationMenu menuItems={menuItems} />
+        </motion.div>
+
+        <motion.div
+          className="ml-auto hidden lg:block"
+          style={{ opacity: useTransform(scrollYBoundedProgressThrottled, [0, 1], [1, 0]) }}
+        >
+          <SocialLinks className="ml-auto" />
         </motion.div>
 
         <div className="flex w-full flex-1 items-center justify-end lg:hidden">
@@ -79,6 +88,8 @@ export const Header = ({ menuItems }: HeaderProps) => {
                 className={'flex-col gap-4 text-right !text-2xl !text-primary'}
                 menuItems={menuItems}
               ></NavigationMenu>
+
+              <SocialLinks className="mt-8 justify-end" />
             </SheetContent>
           </Sheet>
         </div>
