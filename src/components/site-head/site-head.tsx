@@ -6,6 +6,7 @@ export function SiteHead({ children }: any) {
   return (
     <>
       <Head>
+        <title>After 8 Band</title>
         <RawHtml html={children} />
       </Head>
       <Script src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID" />
