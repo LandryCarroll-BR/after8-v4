@@ -195,7 +195,6 @@ export const songs = [
   { id: 'The Beatles', title: 'Oh! Darling' },
   { id: 'The Beatles', title: 'Something' },
   { id: 'The Chainsmokers', title: 'Closer' },
-  { id: 'The Chainsmokers', title: 'Closer' },
   { id: 'The Dan Band', title: 'Total Eclipse of the Heart' },
   { id: 'The Escape Club', title: 'Wild, Wild, West' },
   { id: 'The Gap Band', title: 'Outstanding' },
