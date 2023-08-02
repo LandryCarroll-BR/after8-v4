@@ -3,7 +3,7 @@ import { QueryClient } from '@tanstack/react-query';
 export const queryClient = new QueryClient();
 
 const BASE_URL =
-  process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://after8-v4.vercel.app';
+  process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://www.after8music.com';
 
 export type Event = {
   id: string;
