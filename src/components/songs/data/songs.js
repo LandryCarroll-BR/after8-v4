@@ -23,7 +23,6 @@ export const songs = [
   { id: 'Average White Band', title: 'Pick Up The Pieces' },
   { id: 'Backstreet Boys', title: 'Everybody' },
   { id: 'Backstreet Boys', title: 'I Want It That Way' },
-  { id: 'Backstreet Boys', title: 'I Want It That Way' },
   { id: 'Ben E. King', title: 'Stand By Me' },
   { id: 'Ben Harper', title: 'Steal My Kisses' },
   { id: 'Ben Rector', title: 'Let The Good Times Roll' },
