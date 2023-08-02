@@ -9,14 +9,14 @@ export function SiteHead({ children }: any) {
         <title>After 8 Band</title>
         <RawHtml html={children} />
       </Head>
-      <Script src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID" />
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-L8115CKYDR" />
       <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
  
-          gtag('config', 'GA_MEASUREMENT_ID');
+          gtag('config', 'G-L8115CKYDR');
         `}
       </Script>
     </>
