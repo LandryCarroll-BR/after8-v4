@@ -10,6 +10,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   const params = {
     calendarId: 'after8booking@gmail.com',
+    showDeleted: false,
+    timeMin: new Date().toISOString(),
+    orderBy: 'startTime',
+    singleEvents: true,
   };
 
   function transformEvents(googleApiResponse: any) {
@@ -23,15 +27,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     }));
   }
 
-  function removeOldEvents(events: Event[]) {
-    return events
-      .filter((event) => event.eventStartTime)
-      .filter((event) => new Date(event.eventStartTime) >= new Date());
+  function cleanupEvents(events: Event[]) {
+    return events.filter((event) => event.eventStartTime);
   }
 
-  async function main(params: { calendarId: string }) {
+  async function main(params: Record<string, string | boolean>) {
     try {
-      const res = await calendar.events.list({ calendarId: params.calendarId });
+      const res = await calendar.events.list(params);
       return res;
     } catch (error) {
       console.error(error);
@@ -40,7 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   const googleApiResponse = await main(params);
   const allEvents = transformEvents(googleApiResponse);
-  const upcomingEvents = removeOldEvents(allEvents);
+  const upcomingEvents = cleanupEvents(allEvents);
 
   return res.status(200).json(upcomingEvents);
 }
