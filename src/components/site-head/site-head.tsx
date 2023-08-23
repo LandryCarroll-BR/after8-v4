@@ -8,8 +8,19 @@ export function SiteHead({ children }: any) {
       <Head>
         <title>After 8 Band</title>
         <RawHtml html={children} />
+
+        <script src="https://www.googletagmanager.com/gtag/js?id=G-L8115CKYDR" />
+        <script id="google-analytics">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-L8115CKYDR');
+        `}
+        </script>
       </Head>
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-L8115CKYDR" />
+      {/* <Script src="https://www.googletagmanager.com/gtag/js?id=G-L8115CKYDR" />
       <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
@@ -18,7 +29,7 @@ export function SiteHead({ children }: any) {
  
           gtag('config', 'G-L8115CKYDR');
         `}
-      </Script>
+      </Script> */}
     </>
   );
 }
