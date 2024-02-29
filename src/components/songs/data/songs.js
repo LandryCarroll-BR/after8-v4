@@ -246,4 +246,7 @@ export const songs = [
   { id: 'Wilson Pickett', title: 'Midnight Hour' },
   { id: 'Wilson Pickett', title: 'Mustang Sally' },
   { id: 'ZZ Top', title: 'Tush' },
+  { id: 'Paul Russell', title: 'Lil Boo Thang' },
+  { id: 'The Emotions', title: 'Best of My Love' },
+  { id: 'Paul Russell/The Emotions', title: 'Lil Boo Thang/Best of My Love Mashup' },
 ];
