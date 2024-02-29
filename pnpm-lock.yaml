@@ -14,6 +14,9 @@ dependencies:
   '@faustwp/core':
     specifier: ^1.0.1
     version: 1.2.0(@apollo/client@3.9.5)(next@13.5.6)(react-dom@18.2.0)(react@18.2.0)
+  '@graphql-typed-document-node/core':
+    specifier: ^3.2.0
+    version: 3.2.0(graphql@16.8.1)
   '@hookform/resolvers':
     specifier: ^3.1.1
     version: 3.3.4(react-hook-form@7.50.1)
