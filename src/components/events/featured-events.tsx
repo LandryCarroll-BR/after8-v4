@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { Container } from '../container/container';
 import { Button, buttonVariants } from '../button/Button';
@@ -29,12 +29,12 @@ export default function FeaturedEvents({ featuredEvents }: FeaturedEventsProps) 
 
   return (
     <div className="relative flex min-h-[80vh] w-full flex-col justify-center py-10">
+      <AnimatePresence>
       <Container className="relative z-20 w-full text-center md:text-start">
         <span className="mb-4 block text-xl uppercase text-primary md:text-2xl">
           Featured Shows
         </span>
         {featuredEvents.map((event: FeaturedEvent, index: number) => {
-          const status = index === currentIndex ? 'isActive' : 'isNotActive';
           const eventDay = format(new Date(event.eventStartTime), 'EEEE');
           const startTime = format(new Date(event.eventStartTime), 'p');
           const endTime = format(new Date(event.eventEndTime), 'p');
@@ -42,28 +42,19 @@ export default function FeaturedEvents({ featuredEvents }: FeaturedEventsProps) 
           return (
             <motion.div
               key={index}
-              animate={status}
-              initial={false}
-              variants={{
-                isActive: {
-                  display: 'flex',
-                  opacity: 1,
-                },
-                isNotActive: {
-                  opacity: 0,
-                  display: 'none',
-                },
-              }}
-              className="flex-col text-primary"
+              initial={{opacity: 0, translateX: 5}}
+              animate={{opacity: 1, translateX: 0 }}
+              transition={{duration: 0.5, type: 'spring', stiffness: 60}}
+              className="flex-col text-primary flex"
             >
-              <span className="mb-2 font-display text-5xl font-bold tracking-tighter text-foreground md:text-7xl">
+              <div className="mb-2 font-display text-5xl font-bold tracking-tighter text-foreground md:text-7xl">
                 {event.eventTitle}
-              </span>
-              <span className="text-3xl uppercase md:text-4xl">{`${startTime} - ${endTime}`}</span>
-              <span className="text-2xl md:text-3xl">{`${eventDay}, ${event.eventLocation}`}</span>
+              </div>
+              <div className="text-3xl uppercase md:text-4xl">{`${startTime} - ${endTime}`}</div>
+              <div className="text-2xl md:text-3xl">{`${eventDay}, ${event.eventLocation}`}</div>
             </motion.div>
           );
-        })}
+        })[currentIndex]}
 
         <div className="mt-16 flex w-full flex-wrap items-center justify-center gap-4 md:justify-start">
           <Button
@@ -121,7 +112,6 @@ export default function FeaturedEvents({ featuredEvents }: FeaturedEventsProps) 
           </Button>
         </div>
       </Container>
-
       {featuredEvents.map((event: FeaturedEvent, index: number) => {
         const status = index === currentIndex ? 'isActive' : 'isNotActive';
 
@@ -153,6 +143,7 @@ export default function FeaturedEvents({ featuredEvents }: FeaturedEventsProps) 
         );
       })}
       <div className="absolute z-10 h-full w-full bg-gradient-to-t from-background to-background/50 md:bg-gradient-to-r md:to-background/0"></div>
+      </AnimatePresence>
     </div>
   );
 }
