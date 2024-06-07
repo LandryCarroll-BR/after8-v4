@@ -19,7 +19,6 @@ import {
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { EventsList } from '@/components/events/events-list';
 
 const Template: FaustTemplate<GetAboutPageQuery> = (props) => {
   // Loading state for previews
@@ -114,7 +113,7 @@ const Template: FaustTemplate<GetAboutPageQuery> = (props) => {
         {/* Meet The Band Section */}
         <section>
           <Container className="space-y-10">
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+            {/* <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
               {bandSection?.bandMembers?.slice(0, 2).map((bandMember, index) => (
                 <Card key={index} className="overflow-hidden rounded">
                   <CardContent className="relative flex aspect-square items-end justify-start">
@@ -140,10 +139,10 @@ const Template: FaustTemplate<GetAboutPageQuery> = (props) => {
                   </CardContent>
                 </Card>
               ))}
-            </div>
+            </div> */}
 
             <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
-              {bandSection?.bandMembers?.slice(2).map((bandMember, index) => (
+              {bandSection?.bandMembers?.map((bandMember, index) => (
                 <Card key={index} className="overflow-hidden rounded">
                   <CardContent className="relative flex aspect-square items-end justify-start">
                     <div className="flex items-center justify-end gap-2">
