@@ -97,17 +97,17 @@ const Template: FaustTemplate<GetHomePageQuery> = (props) => {
         {/* Hero Section */}
         <section className="relative flex h-[calc(100vh-200px)] w-full flex-col overflow-hidden">
           <Container className="mt-auto flex w-full flex-col items-end justify-end pb-10 text-right">
-            <h1 className="font-display text-3xl tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+            <h1 className="font-display text-3xl tracking-tighter sm:text-4xl md:text-5xl lg:text-7xl relative z-10">
               <span className="block text-primary">{hero?.headingLine1}</span>
               <span className="block">{hero?.headingLine2}</span>
             </h1>
 
-            <Link href={hero?.cta?.url} className={cn('mt-8', buttonVariants())}>
+            <Link href={hero?.cta?.url} className={cn('mt-8 relative z-10', buttonVariants())}>
               {hero?.cta?.title}
             </Link>
           </Container>
 
-          <div className="pointer-events-none absolute right-0 top-0 -z-0 h-full w-full object-cover object-center mix-blend-lighten">
+          <div className="pointer-events-none absolute right-0 top-0 z-0 h-full w-full object-cover object-center mix-blend-lighten opacity-80">
             <Image
               src={hero?.bgImageDesktop?.sourceUrl}
               fill
