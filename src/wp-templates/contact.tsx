@@ -3,7 +3,7 @@ import { gql as apolloGql, useMutation } from '@apollo/client';
 import { cn } from '@/lib/utils';
 import { GetContactPageQuery } from '@/__generated__/graphql';
 import { FaustTemplate } from '@faustwp/core';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { SpinnerIcon } from '@/components/icons';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -142,169 +142,162 @@ const Template: FaustTemplate<GetContactPageQuery> = (props) => {
               <h1 className="font-display text-5xl tracking-tighter text-primary lg:text-6xl">
                 {hero.heading}
               </h1>
-              <motion.div
-                initial={{ opacity: 0, height: 0, display: 'none' }}
-                animate={{
-                  opacity: isError || isSuccess ? 1 : 0,
-                  height: isError || isSuccess ? 'auto' : 0,
-                  transitionEnd: {
-                    display: isError || isSuccess ? 'auto' : 'none',
-                  },
-                }}
-                className=""
-              >
-                {isSuccess ? (
-                  <div>
-                    <p className="my-6">
-                      Thank you for contacting us! We&apos;ll get back with you shortly.
-                    </p>
-                    <Link href={'/'} className={cn(buttonVariants())}>
-                      Back to home
-                    </Link>
-                  </div>
-                ) : (
-                  <div className="my-6 rounded-2xl border border-red-400 p-8 text-red-300">
-                    <p className="">
-                      Oh no! Looks like something went wrong! Please try again later
-                    </p>
-                  </div>
-                )}
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 1, height: 'auto', display: 'block' }}
-                animate={{
-                  opacity: isError || isSuccess ? 0 : 1,
-                  height: isError || isSuccess ? 0 : 'auto',
-                  transitionEnd: {
-                    display: isError || isSuccess ? 'none' : 'auto',
-                  },
-                }}
-              >
-                <p className="my-6">{hero.body}</p>
-
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onFormSubmit)} className="">
-                    <div className="flex w-full flex-col items-start justify-center gap-6">
-                      <div className="grid w-full grid-cols-2 gap-3">
-                        <FormField
-                          control={form.control}
-                          name="firstName"
-                          render={({ field }) => (
-                            <FormItem className="w-full">
-                              <FormLabel>First Name</FormLabel>
-                              <FormControl>
-                                <Input placeholder="" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        <FormField
-                          control={form.control}
-                          name="lastName"
-                          render={({ field }) => (
-                            <FormItem className="w-full">
-                              <FormLabel>Last Name</FormLabel>
-                              <FormControl>
-                                <Input placeholder="" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-
-                      <FormField
-                        control={form.control}
-                        name="emailAddress"
-                        render={({ field }) => (
-                          <FormItem className="w-full">
-                            <FormLabel>Email Address</FormLabel>
-                            <FormControl>
-                              <Input placeholder="" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="phoneNumber"
-                        render={({ field }) => (
-                          <FormItem className="w-full">
-                            <FormLabel>Phone Number</FormLabel>
-                            <FormControl>
-                              <Input placeholder="" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <div className="grid w-full grid-cols-2 gap-3">
-                        <FormField
-                          control={form.control}
-                          name="eventDate"
-                          render={({ field }) => (
-                            <FormItem className="w-full">
-                              <FormLabel>Date of your event</FormLabel>
-                              <FormControl>
-                                <Input type="date" placeholder="" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        <FormField
-                          control={form.control}
-                          name="eventTime"
-                          render={({ field }) => (
-                            <FormItem className="w-full">
-                              <FormLabel>Time of your event</FormLabel>
-                              <FormControl>
-                                <Input type="time" placeholder="" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-
-                      <FormField
-                        control={form.control}
-                        name="eventDetails"
-                        render={({ field }) => (
-                          <FormItem className="w-full">
-                            <FormLabel>Can you tell us more about your event?</FormLabel>
-                            <FormControl>
-                              <Textarea placeholder="" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <Button type="submit" className="ml-auto" size="sm">
-                        Submit
-                        <motion.div
-                          className="-mr-3 ml-3"
-                          initial={{ opacity: 0, width: 0 }}
-                          animate={{
-                            opacity: loading ? 1 : 0,
-                            width: loading ? 'auto' : 0,
-                          }}
-                        >
-                          <SpinnerIcon className="text-background" />
-                        </motion.div>
-                      </Button>
+              <AnimatePresence>
+                {(isSuccess || isError) && <motion.div>
+                  {isSuccess ? (
+                    <div>
+                      <p className="my-6">
+                        Thank you for contacting us! We&apos;ll get back with you shortly.
+                      </p>
+                      <Link href={'/'} className={cn(buttonVariants())}>
+                        Back to home
+                      </Link>
                     </div>
-                  </form>
-                </Form>
-              </motion.div>
+                  ) : (
+                    <div className="my-6 rounded-2xl border border-red-400 p-8 text-red-300">
+                      <p>
+                        Oh no! Looks like something went wrong with the form! Feel free to email is <a href="mailto:booking@after8music.com">booking@after8music.com</a>
+                      </p>
+                    </div>
+                  )}
+                </motion.div>}
+
+                {(!isSuccess || !isError) && <motion.div
+
+                  initial={{ opacity: 1, height: 'auto', display: 'block' }}
+                  animate={{
+                    opacity: isError || isSuccess ? 0 : 1,
+                    height: isError || isSuccess ? 0 : 'auto',
+                    transitionEnd: {
+                      display: isError || isSuccess ? 'none' : 'auto',
+                    },
+                  }}
+                >
+                  <p className="my-6">{hero.body}</p>
+
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onFormSubmit)} className="">
+                      <div className="flex w-full flex-col items-start justify-center gap-6">
+                        <div className="grid w-full grid-cols-2 gap-3">
+                          <FormField
+                            control={form.control}
+                            name="firstName"
+                            render={({ field }) => (
+                              <FormItem className="w-full">
+                                <FormLabel>First Name</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          <FormField
+                            control={form.control}
+                            name="lastName"
+                            render={({ field }) => (
+                              <FormItem className="w-full">
+                                <FormLabel>Last Name</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+
+                        <FormField
+                          control={form.control}
+                          name="emailAddress"
+                          render={({ field }) => (
+                            <FormItem className="w-full">
+                              <FormLabel>Email Address</FormLabel>
+                              <FormControl>
+                                <Input placeholder="" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="phoneNumber"
+                          render={({ field }) => (
+                            <FormItem className="w-full">
+                              <FormLabel>Phone Number</FormLabel>
+                              <FormControl>
+                                <Input placeholder="" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <div className="grid w-full grid-cols-2 gap-3">
+                          <FormField
+                            control={form.control}
+                            name="eventDate"
+                            render={({ field }) => (
+                              <FormItem className="w-full">
+                                <FormLabel>Date of your event</FormLabel>
+                                <FormControl>
+                                  <Input type="date" placeholder="" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          <FormField
+                            control={form.control}
+                            name="eventTime"
+                            render={({ field }) => (
+                              <FormItem className="w-full">
+                                <FormLabel>Time of your event</FormLabel>
+                                <FormControl>
+                                  <Input type="time" placeholder="" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+
+                        <FormField
+                          control={form.control}
+                          name="eventDetails"
+                          render={({ field }) => (
+                            <FormItem className="w-full">
+                              <FormLabel>Can you tell us more about your event?</FormLabel>
+                              <FormControl>
+                                <Textarea placeholder="" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <Button type="submit" className="ml-auto" size="sm">
+                          Submit
+                          <motion.div
+                            className="-mr-3 ml-3"
+                            initial={{ opacity: 0, width: 0 }}
+                            animate={{
+                              opacity: loading ? 1 : 0,
+                              width: loading ? 'auto' : 0,
+                            }}
+                          >
+                            <SpinnerIcon className="text-background" />
+                          </motion.div>
+                        </Button>
+                      </div>
+                    </form>
+                  </Form>
+                </motion.div>}
+              </AnimatePresence>
             </div>
           </div>
         </div>
