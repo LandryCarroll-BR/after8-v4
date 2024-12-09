@@ -1,5 +1,169 @@
 export const songs = [
 	{
+		id: "Macy Gray",
+		title: "I Try"
+	},
+	{
+		id:"Bruno Mars",
+		title:"Marry You"
+	},
+	{
+		id:"Johnny Cash",
+		title:"Folsom Prison Blues"
+	},
+	{
+		id:"Smoky Lee Robinson, or Huey Lewis, and Gwyneth Paltrow",
+		title:"Cruisin'"
+	},
+	{
+		id:"Bob Dylan",
+		title:"Forever Young"
+	},
+	{
+		id:"Bad English",
+		title:"When I See You Smile"
+	},
+	{
+		id:"Sonny & Cher ",
+		title:"I Got You, Babe"
+	},
+	{
+		id:"The Jacksons",
+		title:"Blame it on the Boogie"
+	},
+	{
+		id:"Stevie Wonder",
+		title:"Boogie on Reggae Woman"
+	},
+	{
+		id:"Carlos Santana featuring Rob Thomas",
+		title:"Smooth"
+	},
+	{
+		id:"Coldplay",
+		title:"Something Just Like This"
+	},
+	{
+		id:"Fallout Boy",
+		title:"Sugar We're Goin Down"
+	},
+	{
+		id:"Natasha Bedingfield",
+		title:"Unwritten"
+	},
+	{
+		id:"The Carpenters",
+		title:"Top of the World"
+	},
+	{
+		id:"The Platters",
+		title:"Only you"
+	},
+	{
+		id:"Elton John",
+		title:"Tiny Dancer"
+	},
+	{
+		id:"Alabama",
+		title:"Dixieland Delight"
+	},
+	{
+		id:"Dua Lipa",
+		title:"Break My Heart"
+	},
+	{
+		id:"Jason Mraz",
+		title:"I Feel Like Dancing"
+	},
+	{
+		id:"Kenny Chesney",
+		title:"Boston"
+	},
+	{
+		id:"Billy Joel",
+		title:"She’s Got a Way"
+	},
+	{
+		id:"Jackson",
+		title:"Johnny Cash  and June Carter Cash"
+	},
+	{
+		id:"Blood, Sweat, & Tears",
+		title:"You’ve Made Me So Very Happy"
+	},
+	{
+		id:"George Harrison",
+		title:"My Sweet Lord"
+	},
+	{
+		id:"The Drifters",
+		title:"This Magic Moment"
+	},
+	{
+		id:"Jon Batiste",
+		title:"Calling Your Name"
+	},
+	{
+		id:"Bread",
+		title:"I’m-A Want You – Bread"
+	},
+	{
+		id:"Merle Haggard",
+		title:"Mama Tried"
+	},
+	{
+		id:"Paramore",
+		title:"Still Into You"
+	},
+	{
+		id:"Joy Oladokun & Chris Stapleton",
+		title:"Sweet Symphony"
+	},
+	{
+		id:"Matt Stephens",
+		title:"What Mamas Are For"
+	},
+	{
+		id:"Loggins & Messina",
+		title:"Danny’s Song"
+	},
+	{
+		id:"Kane Brown",
+		title:"Thank God"
+	},
+	{
+		id:"Grateful Dead",
+		title:"A Touch of Grey"
+	},
+	{
+		id:"Sixpence None The Richer",
+		title:"Kiss Me",
+	},
+	{
+		id:"Frank Sinatra",
+		title:"New York, New York"
+	},
+	{
+		id:"4 Non Blondes",
+		title:"What’s Up"
+	},
+	{
+		id:"Blink 182",
+		title:"What’s My Age Again?"
+	},
+	{
+		id:"Master P",
+		title:"Choppa Style"
+	},
+	{
+		id:"Jonas Brothers",
+		title:"What A Man Gotta Do"
+	},
+	{
+		id:"FloRida feat. T-Pain",
+		title:"Low"
+	},
+	{
 		id: "Various (Includes songs by Britney Spears, Destiny's Child, Vanilla Ice, Coolio, and many more!)",
 		title: '90’s Medley',
 	},
