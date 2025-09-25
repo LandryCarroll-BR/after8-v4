@@ -16,12 +16,16 @@ import {
 import { EventsList } from '@/components/events/events-list';
 import FeaturedEvents from '@/components/events/featured-events';
 import Link from 'next/link';
+import { Event } from '@/lib/fetch-events';
 
 const Template: FaustTemplate<GetUpcomingShowsPageQuery> = (props) => {
   // Loading state for previews
   if (props.loading) {
     return <>Loading...</>;
   }
+
+  // @ts-ignore
+  const events = props.extendedData.events as Event[];
 
   // Set data variables
   const { nodes: menuItems } = props.data.primaryMenuItems;
@@ -33,7 +37,7 @@ const Template: FaustTemplate<GetUpcomingShowsPageQuery> = (props) => {
       <SiteHead>{fullHead}</SiteHead>
       <Header menuItems={menuItems} />
       <Main>
-        <FeaturedEvents featuredEvents={featuredEvents} />
+        <FeaturedEvents featuredEvents={events} images={featuredEvents.map(event => event.eventBackgroundImage.sourceUrl)} />
         <Container className="flex w-full flex-col items-center justify-center gap-16 py-16 lg:flex-row lg:items-start lg:gap-6">
           <EventsList />
 

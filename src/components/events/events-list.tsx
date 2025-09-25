@@ -1,4 +1,4 @@
-import { fetchEvents } from '@/lib/api';
+import { fetchEvents } from '@/lib/fetch-events';
 import { useQuery } from '@tanstack/react-query';
 import { format } from 'date-fns';
 

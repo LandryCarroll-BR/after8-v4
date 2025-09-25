@@ -6,24 +6,15 @@ import { Button, buttonVariants } from '../button/Button';
 import { ArrowRightIcon } from '../icons';
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
+import { Event } from '@/lib/api';
 
-type FeaturedEvent = {
-  __typename?: 'Page_Upcomingshows_featuredEvents';
-  eventEndTime?: string;
-  eventStartTime?: string;
-  eventTitle?: string;
-  eventLocation?: string;
-  eventBackgroundImage?: {
-    __typename?: 'MediaItem';
-    sourceUrl?: string;
-  };
-};
 
 interface FeaturedEventsProps extends React.HTMLProps<HTMLDivElement> {
-  featuredEvents: FeaturedEvent[];
+  featuredEvents: Event[];
+  images: string[];
 }
 
-export default function FeaturedEvents({ featuredEvents }: FeaturedEventsProps) {
+export default function FeaturedEvents({ featuredEvents,images }: FeaturedEventsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const lastEventIndex = featuredEvents.length - 1;
 
@@ -34,7 +25,7 @@ export default function FeaturedEvents({ featuredEvents }: FeaturedEventsProps) 
         <span className="mb-4 block text-xl uppercase text-primary md:text-2xl">
           Featured Shows
         </span>
-        {featuredEvents.map((event: FeaturedEvent, index: number) => {
+        {featuredEvents.map((event: Event, index: number) => {
           const eventDay = format(new Date(event.eventStartTime), 'EEEE');
           const startTime = format(new Date(event.eventStartTime), 'p');
           const endTime = format(new Date(event.eventEndTime), 'p');
@@ -51,7 +42,7 @@ export default function FeaturedEvents({ featuredEvents }: FeaturedEventsProps) 
                 {event.eventTitle}
               </div>
               <div className="text-3xl uppercase md:text-4xl">{`${startTime} - ${endTime}`}</div>
-              <div className="text-2xl md:text-3xl">{`${eventDay}, ${event.eventLocation}`}</div>
+              <div className="text-2xl md:text-3xl whitespace-pre-line ">{`${eventDay}, ${event.eventLocation}`}</div>
             </motion.div>
           );
         })[currentIndex]}
@@ -64,7 +55,7 @@ export default function FeaturedEvents({ featuredEvents }: FeaturedEventsProps) 
           >
             <ArrowRightIcon className="rotate-180 stroke-primary" />
           </Button>
-          {featuredEvents.map((event: FeaturedEvent, index: number) => {
+          {featuredEvents.map((event: Event, index: number) => {
             const status = index === currentIndex ? 'isActive' : 'isNotActive';
             const eventMonth = format(new Date(event.eventStartTime), 'MMM');
             const eventDate = format(new Date(event.eventStartTime), 'dd');
@@ -112,7 +103,7 @@ export default function FeaturedEvents({ featuredEvents }: FeaturedEventsProps) 
           </Button>
         </div>
       </Container>
-      {featuredEvents.map((event: FeaturedEvent, index: number) => {
+      {featuredEvents.map((_: Event, index: number) => {
         const status = index === currentIndex ? 'isActive' : 'isNotActive';
 
         return (
@@ -133,10 +124,11 @@ export default function FeaturedEvents({ featuredEvents }: FeaturedEventsProps) 
             className="absolute aspect-auto h-full w-full object-cover"
           >
             <Image
-              alt=""
-              src={event.eventBackgroundImage?.sourceUrl}
+              alt="Background Image"
+              src={images[index] || images[index - 2]}
               fill
               priority
+              role='presentation'
               className="absolute aspect-auto h-full w-full object-cover"
             />
           </motion.div>
