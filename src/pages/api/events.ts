@@ -1,4 +1,4 @@
-import { Event } from '@/lib/api';
+import { Event } from '@/lib/fetch-events';
 import { google } from 'googleapis';
 import { NextApiRequest, NextApiResponse } from 'next';
 

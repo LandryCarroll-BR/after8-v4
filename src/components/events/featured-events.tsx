@@ -6,7 +6,7 @@ import { Button, buttonVariants } from '../button/Button';
 import { ArrowRightIcon } from '../icons';
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
-import { Event } from '@/lib/api';
+import { Event } from '@/lib/fetch-events';
 
 
 interface FeaturedEventsProps extends React.HTMLProps<HTMLDivElement> {
